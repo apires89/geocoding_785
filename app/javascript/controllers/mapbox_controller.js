@@ -5,13 +5,12 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 export default class extends Controller {
   static values = {
-    apiKey: String,
     markers: Array
   }
 
 
   connect() {
-    mapboxgl.accessToken = this.apiKeyValue
+    mapboxgl.accessToken = process.env.MAPBOX_API_KEY
 
     this.map = new mapboxgl.Map({
       container: this.element,
